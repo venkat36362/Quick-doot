@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuickMeasure – Intro Video Page</title>
+  <style>
+    * { box-sizing: border-box; font-family: Inter, sans-serif; }
+    body {
+      margin: 0;
+      background: #0B0F19;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    /* Fullscreen video */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.55);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 540px;
+      color: #d9d9d9;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      background: #00C6FF;
+      color: #000;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #4DFFFF;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 20px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.12);
+      padding: 10px 16px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="video-bg" autoplay loop muted>
+    <source src="logo intro.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Branding -->
+  <div class="logo">QuickMeasure</div>
+
+  <!-- Overlay Content -->
+  <div class="overlay">
+    <h1>Measure Anything Instantly</h1>
+    <p>Quickdoot's QuickMeasure lets you detect parcel dimensions with just a single photo. Fast, smart, and effortless.</p>
+    <a href="index.html" class="btn" style="text-decoration:none; display:inline-block;">Get Started</a>
+  </div>
+
+</body>
+</html>

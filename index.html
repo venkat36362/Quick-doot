@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuickMeasure — Measure Parcel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo">QM</div>
+      <div>
+        <h1>QuickMeasure — Measure Parcel</h1>
+        <p class="lead">Measure parcel dimensions quickly using a simple camera workflow.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="panel">
+        <button class="btn primary" id="startBtn">📦 Measure Parcel</button>
+        <div style="height:12px"></div>
+        <button class="btn" id="openCameraBtn">Open Camera</button>
+        <button class="btn" id="uploadBtn">Upload Photo</button>
+        <div class="hint">Tip: place parcel on a plain background for best results.</div>
+      </div>
+
+      <div class="stage">
+        <!-- Home Screen -->
+        <div id="home" class="screen active">
+          <h2>QuickMeasure</h2>
+          <p class="muted">Click \"Measure Parcel\" to get started.</p>
+          <button class="btn primary" id="homeMeasure">Start Measuring</button>
+        </div>
+
+        <!-- Camera Screen -->
+        <div id="camera" class="screen">
+          <div class="camera-box">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="snapshot" style="display:none"></canvas>
+            <div class="controls">
+              <button class="btn" id="snap">Capture</button>
+              <button class="btn" id="useUpload">Use Upload</button>
+              <button class="btn" id="closeCam">Cancel</button>
+            </div>
+          </div>
+
+          <div class="panel small">
+            <div class="muted">Calibration (px → cm)</div>
+            <input id="calibRange" type="range" min="30" max="120" value="60" />
+            <div class="muted">Current: <span id="calibVal">60</span> px/cm</div>
+          </div>
+
+          <div class="panel small">
+            <div id="previewMini" class="preview">No capture yet</div>
+          </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result" class="screen">
+          <div class="result-card">
+            <canvas id="thumbCanvas" width="640" height="480"></canvas>
+
+            <div class="measurements">
+              <h3>📦 Measured Size</h3>
+              <p id="measuredSummary">Length: — cm × Width: — cm × Height: — cm</p>
+
+              <div class="measurement-row">
+                <span class="muted">Length</span>
+                <span id="lengthVal">— cm</span>
+              </div>
+
+              <div class="measurement-row">
+                <span class="muted">Width</span>
+                <span id="widthVal">— cm</span>
+              </div>
+
+              <div class="measurement-row">
+                <span class="muted">Height (est.)</span>
+                <span id="heightVal">— cm</span>
+              </div>
+
+              <div class="btn-row">
+                <button class="btn" id="saveBtn">Save</button>
+                <button class="btn" id="retakeBtn">Retake</button>
+                <button class="btn primary" id="useBtn">Use This Size</button>
+              </div>
+            </div>
+          </div>
+
+          <a id="newMeasure" class="link">Measure Another</a>
+        </div>
+
+        <footer>
+          <div class="muted">Quickdoot — QuickMeasure prototype</div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <input id="fileInput" type="file" accept="image/*" style="display:none" />
+  <script src="script.js"></script>
+</body>
+</html>
